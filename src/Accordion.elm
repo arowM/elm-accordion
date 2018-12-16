@@ -58,12 +58,6 @@ view : String -> Model -> Html Msg
 view content model =
     div
         [ class "wrapper"
-        , attribute "aria-hidden" <|
-            if model.isOpen then
-                "false"
-
-            else
-                "true"
         ]
         [ div
             [ class "title"
@@ -80,6 +74,12 @@ view content model =
 
                     Just n ->
                         String.fromInt n ++ "px"
+            , attribute "aria-hidden" <|
+                if model.isOpen then
+                    "false"
+
+                else
+                    "true"
             ]
             [ div
                 [ class "content"
